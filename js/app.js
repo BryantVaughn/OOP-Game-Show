@@ -1,8 +1,10 @@
 const startBtn = document.querySelector('#btn__reset');
 const keyboard = document.querySelector('#qwerty');
 
+let game;
+
 startBtn.addEventListener('click', () => {
-	let game = new Game();
+	game = new Game();
 	game.startGame();
 
 	keyboard.addEventListener('click', (evt) => {

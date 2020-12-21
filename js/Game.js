@@ -104,5 +104,19 @@ class Game {
 		}
 
 		overlay.style.display = '';
+		this.resetGame();
+	}
+
+	resetGame() {
+		this.activePhrase = null;
+		document.querySelector('#phrase ul').innerHTML = '';
+		document.querySelectorAll('#qwerty button').forEach((key) => {
+			key.disabled = false;
+			key.classList.remove('chosen', 'wrong');
+			key.classList.add('key');
+		});
+		document.querySelectorAll('.tries img').forEach((img) => {
+			img.src = 'images/liveHeart.png';
+		});
 	}
 }
