@@ -11,11 +11,11 @@ class Game {
 	 */
 	initializePhrases() {
 		const phrases = [];
-		phrases.push(new Phrase('a dime a dozen'));
-		phrases.push(new Phrase('beating around the bush'));
-		phrases.push(new Phrase('i lost track of time'));
-		phrases.push(new Phrase('actions speak louder than words'));
-		phrases.push(new Phrase('i can live with that'));
+		phrases.push(new Phrase('A dime a dozen'));
+		phrases.push(new Phrase('Beating around the bush'));
+		phrases.push(new Phrase('I lost track of time'));
+		phrases.push(new Phrase('Actions speak louder than words'));
+		phrases.push(new Phrase('I can live with that'));
 
 		return phrases;
 	}
@@ -25,7 +25,7 @@ class Game {
 	 */
 	startGame() {
 		document.getElementById('overlay').style.display = 'none';
-		this.activePhrase = getRandomPhrase();
+		this.activePhrase = this.getRandomPhrase();
 		this.activePhrase.addPhraseToDisplay();
 	}
 

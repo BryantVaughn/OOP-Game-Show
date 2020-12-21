@@ -11,8 +11,8 @@ class Phrase {
 
 		for (let char of this.phrase) {
 			const listItem = document.createElement('li');
-			if (!char === ' ') {
-				listItem.className = `hide letter ${char}`;
+			if (!(char === ' ')) {
+				listItem.className = `hide letter ${char.toLowerCase()}`;
 			} else {
 				listItem.className = 'space';
 			}
@@ -27,7 +27,7 @@ class Phrase {
 	 * @return {boolean} Boolean based on if letter is found.
 	 */
 	checkLetter(letter) {
-		return this.phrase.includes(letter);
+		return this.phrase.toLowerCase().includes(letter);
 	}
 
 	/**

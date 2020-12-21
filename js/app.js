@@ -1,3 +1,13 @@
-/* Treehouse FSJS Techdegree
- * Project 4 - OOP Game App
- * app.js */
+const startBtn = document.querySelector('#btn__reset');
+const keyboard = document.querySelector('#qwerty');
+
+startBtn.addEventListener('click', () => {
+	let game = new Game();
+	game.startGame();
+
+	keyboard.addEventListener('click', (evt) => {
+		if (evt.target.tagName === 'BUTTON') {
+			game.handleInteraction(evt);
+		}
+	});
+});
