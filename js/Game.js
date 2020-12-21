@@ -19,4 +19,22 @@ class Game {
 
 		return phrases;
 	}
+
+	/**
+	 * Hides the start game overlay and initializes game with a random phrase.
+	 */
+	startGame() {
+		document.getElementById('overlay').style.display = 'none';
+		this.activePhrase = getRandomPhrase();
+		this.activePhrase.addPhraseToDisplay();
+	}
+
+	/**
+	 * Randomly selects a phrase from the phrases array.
+	 * @return {object} Returns a Phrase object.
+	 */
+	getRandomPhrase() {
+		const rand = Math.floor(Math.random() * this.phrases.length);
+		return this.phrases[rand];
+	}
 }
