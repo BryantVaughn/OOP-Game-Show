@@ -52,7 +52,7 @@ class Game {
 		if (isFound) {
 			e.target.classList.add('chosen');
 			this.activePhrase.showMatchedLetter(letter);
-			if (this.checkForWin()) gameOver(true);
+			if (this.checkForWin()) this.gameOver(true);
 		} else {
 			e.target.classList.add('wrong');
 			this.removeLive();
@@ -72,15 +72,19 @@ class Game {
 
 	/**
 	 * Checks if all letters of phrase have been guessed.
-	 * @return {boolean} Boolean value based on if all letters of phrase
-	 *                   have been guessed.
+	 * @return {boolean} isFound - Boolean value based on if all letters
+	 *                   of phrase have been guessed.
 	 */
 	checkForWin() {
 		const phraseItems = document.querySelectorAll('.letter');
+		let isFound = true;
 		phraseItems.forEach((item) => {
-			if (item.className.includes('hide')) return false;
+			if (item.className.includes('hide')) {
+				isFound = false;
+				console.log();
+			}
 		});
-		return true;
+		return isFound;
 	}
 
 	/**
@@ -98,5 +102,7 @@ class Game {
 			overlay.querySelector('#game-over-message').textContent = 'You lose...';
 			overlay.classList.add('lose');
 		}
+
+		overlay.style.display = '';
 	}
 }
