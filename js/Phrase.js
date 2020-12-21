@@ -20,4 +20,12 @@ class Phrase {
 			phraseUL.appendChild(listItem);
 		}
 	}
+
+	/**
+	 * Checks if user's selected letter is in the phrase.
+	 * @param {object} e - Event object from user click.
+	 */
+	checkLetter(e) {
+		return this.phrase.includes(e.target.textContent);
+	}
 }
