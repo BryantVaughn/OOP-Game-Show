@@ -65,5 +65,16 @@ class Game {
 		if (this.missed > 4) this.gameOver();
 	}
 
-	checkForWin() {}
+	/**
+	 * Checks if all letters of phrase have been guessed.
+	 * @return {boolean} Boolean value based on if all letters of phrase
+	 *                   have been guessed.
+	 */
+	checkForWin() {
+		const phraseItems = document.querySelectorAll('.letter');
+		phraseItems.forEach((item) => {
+			if (item.className.includes('hide')) return false;
+		});
+		return true;
+	}
 }
