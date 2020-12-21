@@ -28,4 +28,17 @@ class Phrase {
 	checkLetter(e) {
 		return this.phrase.includes(e.target.textContent);
 	}
+
+	/**
+	 * Gathers all matching list items that match the letter selected
+	 * and reveals them on the screen.
+	 * @param {string} letter - The letter selected by the user.
+	 */
+	showMatchedLetter(letter) {
+		const matchedLetters = document.querySelectorAll(`.${letter}`);
+		matchedLetters.forEach((letter) => {
+			letter.classList.remove('hide');
+			letter.classList.add('show');
+		});
+	}
 }
