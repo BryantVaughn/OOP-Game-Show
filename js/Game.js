@@ -37,4 +37,33 @@ class Game {
 		const rand = Math.floor(Math.random() * this.phrases.length);
 		return this.phrases[rand];
 	}
+
+	handleInteraction(e) {
+		e.target.disabled = true;
+
+		const letter = e.target.textContent;
+		const isFound = this.activePhrase.checkLetter(letter);
+
+		if (isFound) {
+			e.target.classList.add('chosen');
+			this.activePhrase.showMatchedLetter(letter);
+			if (this.checkForWin()) gameOver();
+		} else {
+			e.target.classList.add('wrong');
+			this.removeLive();
+		}
+	}
+
+	/**
+	 * Removes a life from the scoreboard.
+	 */
+	removeLive() {
+		const lifeHearts = document.querySelectorAll('.tries img');
+		lifeHearts[this.missed].src = 'images/lostHeart.png';
+		this.missed += 1;
+
+		if (this.missed > 4) this.gameOver();
+	}
+
+	checkForWin() {}
 }

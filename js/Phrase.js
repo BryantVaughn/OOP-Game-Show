@@ -23,11 +23,11 @@ class Phrase {
 
 	/**
 	 * Checks if user's selected letter is in the phrase.
-	 * @param {object} e - Event object from user click.
+	 * @param {string} letter - Letter the user clicked.
+	 * @return {boolean} Boolean based on if letter is found.
 	 */
-	checkLetter(e) {
-		const isFound = this.phrase.includes(e.target.textContent);
-		if (isFound) this.showMatchedLetter(e.target.textContent);
+	checkLetter(letter) {
+		return this.phrase.includes(letter);
 	}
 
 	/**
