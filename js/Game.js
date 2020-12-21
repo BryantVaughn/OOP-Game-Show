@@ -107,6 +107,10 @@ class Game {
 		this.resetGame();
 	}
 
+	/**
+	 * Resets the game board by clearing the phrase items and reseting the
+	 * keyboard and life hearts.
+	 */
 	resetGame() {
 		this.activePhrase = null;
 		document.querySelector('#phrase ul').innerHTML = '';
