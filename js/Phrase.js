@@ -26,7 +26,8 @@ class Phrase {
 	 * @param {object} e - Event object from user click.
 	 */
 	checkLetter(e) {
-		return this.phrase.includes(e.target.textContent);
+		const isFound = this.phrase.includes(e.target.textContent);
+		if (isFound) this.showMatchedLetter(e.target.textContent);
 	}
 
 	/**
