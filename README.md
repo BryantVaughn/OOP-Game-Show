@@ -6,6 +6,8 @@ This is an OOP JavaScript game that plays similar to Hangman. You guess the lett
 
 ### Style Changes
 
+**Font**: I decided to use a new Google Font (Jura) that has been imported at the top of styles.css.
+
 **Transitions**: I added transitions to the display of correctly guessed phrase letters as well as the active state of the keyboard buttons.
 
 **Colors**: I changed the main colors around for the game board itself. I went with a tan background and dark blue/gray selections on top.
