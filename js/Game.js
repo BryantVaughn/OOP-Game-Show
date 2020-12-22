@@ -97,9 +97,11 @@ class Game {
 
 		if (result) {
 			overlay.querySelector('#game-over-message').textContent = 'You win!!!';
+			overlay.classList.remove('lose');
 			overlay.classList.add('win');
 		} else {
 			overlay.querySelector('#game-over-message').textContent = 'You lose...';
+			overlay.classList.remove('win');
 			overlay.classList.add('lose');
 		}
 
