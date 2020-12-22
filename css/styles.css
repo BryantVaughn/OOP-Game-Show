@@ -8,6 +8,7 @@
 	--color-lose: #d94545;
 	--color-start: #5b85b7;
 	--color-neutral: #445069;
+	--color-neutral-tan: #c9c4b8;
 	--color-neutral-light: #d2d2d2;
 	--color-keys: #37474f;
 	--color-keys-light: #e5e5e5;
@@ -28,6 +29,7 @@ body {
 	flex-direction: column;
 	display: flex;
 	height: 100vh;
+	background-color: var(--color-neutral-tan);
 }
 
 li,
@@ -65,6 +67,25 @@ button {
 #btn__reset {
 	width: 200px;
 	margin: 0 auto;
+	transition: transform 0.3s ease-out;
+	-webkit-transition: transform 0.3s ease-out;
+	-moz-transition: transform 0.3s ease-out;
+	-ms-transition: transform 0.3s ease-out;
+	-o-transition: transform 0.3s ease-out;
+}
+#btn__reset:hover {
+	transform: scale(1.1);
+	-webkit-transform: scale(1.1);
+	-moz-transform: scale(1.1);
+	-ms-transform: scale(1.1);
+	-o-transform: scale(1.1);
+}
+#btn__reset:active {
+	transform: scale(0.9);
+	-webkit-transform: scale(0.9);
+	-moz-transform: scale(0.9);
+	-ms-transform: scale(0.9);
+	-o-transform: scale(0.9);
 }
 
 .main-container {
@@ -88,7 +109,7 @@ button {
 /* Title */
 
 .header {
-	color: #3a3f58;
+	color: var(--color-neutral);
 }
 
 /* Phrase */
@@ -100,7 +121,7 @@ button {
 	padding: 20px 1px 0 1px;
 	margin-right: 2px;
 	color: transparent;
-	background: var(--color-neutral-light);
+	background: var(--color-keys-light);
 	border-radius: 5px;
 }
 
@@ -110,7 +131,7 @@ button {
 
 .show {
 	color: #fff;
-	background-color: #4ac0d5;
+	background-color: var(--color-neutral);
 	font-size: 20px;
 	height: 65px;
 	width: 65px;
@@ -131,22 +152,6 @@ button {
 .keyrow {
 	display: flex;
 	justify-content: center;
-}
-
-.key:hover {
-	transform: scale(1.1);
-	-webkit-transform: scale(1.1);
-	-moz-transform: scale(1.1);
-	-ms-transform: scale(1.1);
-	-o-transform: scale(1.1);
-}
-
-.key:active {
-	transform: scale(0.9);
-	-webkit-transform: scale(0.9);
-	-moz-transform: scale(0.9);
-	-ms-transform: scale(0.9);
-	-o-transform: scale(0.9);
 }
 
 .chosen {

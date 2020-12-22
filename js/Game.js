@@ -24,6 +24,7 @@ class Game {
 	 * Hides the start game overlay and initializes game with a random phrase.
 	 */
 	startGame() {
+		this.resetGame();
 		document.getElementById('overlay').style.display = 'none';
 		this.activePhrase = this.getRandomPhrase();
 		this.activePhrase.addPhraseToDisplay();
@@ -61,7 +62,6 @@ class Game {
 			target.classList.add('wrong');
 			this.removeLive();
 		}
-		target.classList.remove('key');
 	}
 
 	/**
@@ -97,10 +97,10 @@ class Game {
 	 * @param {boolean} result - Win (true) or lose (false).
 	 */
 	gameOver(result) {
-		setTimeout(function () {
-			const overlay = document.getElementById('overlay');
-			overlay.classList.remove('start');
+		const overlay = document.getElementById('overlay');
+		overlay.classList.remove('start');
 
+		setTimeout(function () {
 			if (result) {
 				overlay.querySelector('#game-over-message').textContent = 'You win!!!';
 				overlay.classList.remove('lose');
@@ -110,10 +110,8 @@ class Game {
 				overlay.classList.remove('win');
 				overlay.classList.add('lose');
 			}
-
 			overlay.style.display = '';
-			this.resetGame();
-		}, 300);
+		}, 600);
 	}
 
 	/**
@@ -123,10 +121,11 @@ class Game {
 	resetGame() {
 		this.activePhrase = null;
 		document.querySelector('#phrase ul').innerHTML = '';
-		document.querySelectorAll('#qwerty button').forEach((key) => {
+		const keys = document.querySelectorAll('#qwerty button');
+		console.log(keys);
+		keys.forEach((key) => {
 			key.disabled = false;
 			key.classList.remove('chosen', 'wrong');
-			key.classList.add('key');
 		});
 		document.querySelectorAll('.tries img').forEach((img) => {
 			img.src = 'images/liveHeart.png';
