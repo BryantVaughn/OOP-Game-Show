@@ -61,6 +61,7 @@ class Game {
 			target.classList.add('wrong');
 			this.removeLive();
 		}
+		target.classList.remove('key');
 	}
 
 	/**
@@ -96,21 +97,23 @@ class Game {
 	 * @param {boolean} result - Win (true) or lose (false).
 	 */
 	gameOver(result) {
-		const overlay = document.getElementById('overlay');
-		overlay.classList.remove('start');
+		setTimeout(function () {
+			const overlay = document.getElementById('overlay');
+			overlay.classList.remove('start');
 
-		if (result) {
-			overlay.querySelector('#game-over-message').textContent = 'You win!!!';
-			overlay.classList.remove('lose');
-			overlay.classList.add('win');
-		} else {
-			overlay.querySelector('#game-over-message').textContent = 'You lose...';
-			overlay.classList.remove('win');
-			overlay.classList.add('lose');
-		}
+			if (result) {
+				overlay.querySelector('#game-over-message').textContent = 'You win!!!';
+				overlay.classList.remove('lose');
+				overlay.classList.add('win');
+			} else {
+				overlay.querySelector('#game-over-message').textContent = 'You lose...';
+				overlay.classList.remove('win');
+				overlay.classList.add('lose');
+			}
 
-		overlay.style.display = '';
-		this.resetGame();
+			overlay.style.display = '';
+			this.resetGame();
+		}, 300);
 	}
 
 	/**
