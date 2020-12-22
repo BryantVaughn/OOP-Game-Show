@@ -12,9 +12,16 @@ startBtn.addEventListener('click', () => {
 	game.startGame();
 });
 
-// Keyboard click listener
+// On-screen button keyboard click listener
 keyboard.addEventListener('click', (evt) => {
 	if (evt.target.tagName === 'BUTTON') {
-		game.handleInteraction(evt);
+		game.handleInteraction(evt.target.textContent);
+	}
+});
+
+// User keyboard keyup event listener
+document.addEventListener('keyup', (evt) => {
+	if (/[a-z]/.test(evt.key)) {
+		game.handleInteraction(evt.key);
 	}
 });

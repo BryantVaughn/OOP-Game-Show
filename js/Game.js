@@ -41,20 +41,24 @@ class Game {
 	/**
 	 * Checks if user's selected letter is in the phrase or not,
 	 * then checks if the game has been won or lost.
-	 * @param {object} e - Event object for user's clicked letter.
+	 * @param {string} letter - String of the letter picked by user.
 	 */
-	handleInteraction(e) {
-		e.target.disabled = true;
+	handleInteraction(letter) {
+		const domKeyboard = document.querySelectorAll('.key');
+		let target;
+		domKeyboard.forEach((key) => {
+			if (key.textContent === letter) target = key;
+		});
 
-		const letter = e.target.textContent;
+		target.disabled = true;
 		const isFound = this.activePhrase.checkLetter(letter);
 
 		if (isFound) {
-			e.target.classList.add('chosen');
+			target.classList.add('chosen');
 			this.activePhrase.showMatchedLetter(letter);
 			if (this.checkForWin()) this.gameOver(true);
 		} else {
-			e.target.classList.add('wrong');
+			target.classList.add('wrong');
 			this.removeLive();
 		}
 	}
