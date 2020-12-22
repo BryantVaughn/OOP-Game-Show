@@ -124,7 +124,7 @@ class Game {
 		this.activePhrase = null;
 		document.querySelector('#phrase ul').innerHTML = '';
 		const keys = document.querySelectorAll('#qwerty button');
-		console.log(keys);
+
 		keys.forEach((key) => {
 			key.disabled = false;
 			key.classList.remove('chosen', 'wrong');
