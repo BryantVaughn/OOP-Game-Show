@@ -56,10 +56,12 @@ class Game {
 
 		if (isFound) {
 			target.classList.add('chosen');
+			target.classList.remove('key');
 			this.activePhrase.showMatchedLetter(letter);
 			if (this.checkForWin()) this.gameOver(true);
 		} else {
 			target.classList.add('wrong');
+			target.classList.remove('key');
 			this.removeLive();
 		}
 	}
@@ -126,6 +128,7 @@ class Game {
 		keys.forEach((key) => {
 			key.disabled = false;
 			key.classList.remove('chosen', 'wrong');
+			key.classList.add('key');
 		});
 		document.querySelectorAll('.tries img').forEach((img) => {
 			img.src = 'images/liveHeart.png';
