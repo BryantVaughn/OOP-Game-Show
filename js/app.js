@@ -6,10 +6,10 @@ let game;
 startBtn.addEventListener('click', () => {
 	game = new Game();
 	game.startGame();
+});
 
-	keyboard.addEventListener('click', (evt) => {
-		if (evt.target.tagName === 'BUTTON') {
-			game.handleInteraction(evt);
-		}
-	});
+keyboard.addEventListener('click', (evt) => {
+	if (evt.target.tagName === 'BUTTON') {
+		game.handleInteraction(evt);
+	}
 });
