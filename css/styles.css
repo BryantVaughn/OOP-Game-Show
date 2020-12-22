@@ -119,6 +119,11 @@ button {
 	border-radius: 5px;
 	-webkit-animation-duration: 0.5s;
 	animation-duration: 0.5s;
+	transition: background-color 0.4s ease-out;
+	-webkit-transition: background-color 0.4s ease-out;
+	-moz-transition: background-color 0.4s ease-out;
+	-ms-transition: background-color 0.4s ease-out;
+	-o-transition: background-color 0.4s ease-out;
 }
 
 /* Keyboard */
