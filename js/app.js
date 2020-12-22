@@ -20,8 +20,9 @@ keyboard.addEventListener('click', (evt) => {
 });
 
 // User keyboard keyup event listener
-document.addEventListener('keyup', (evt) => {
-	if (/[a-z]/.test(evt.key)) {
+document.addEventListener('keypress', (evt) => {
+	const letters = 'abcdefghijklmnopqrstuvwxyz';
+	if (letters.includes(evt.key)) {
 		game.handleInteraction(evt.key);
 	}
 });
