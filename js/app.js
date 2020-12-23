@@ -22,7 +22,7 @@ keyboard.addEventListener('click', (evt) => {
 // User keyboard keyup event listener
 document.addEventListener('keyup', (evt) => {
 	const letters = 'abcdefghijklmnopqrstuvwxyz';
-	if (letters.includes(evt.key)) {
+	if (game && game.activePhrase && letters.includes(evt.key)) {
 		game.handleInteraction(evt.key);
 	}
 });

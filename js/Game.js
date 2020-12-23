@@ -24,7 +24,6 @@ class Game {
 	 * Hides the start game overlay and initializes game with a random phrase.
 	 */
 	startGame() {
-		this.resetGame();
 		document.getElementById('overlay').style.display = 'none';
 		this.activePhrase = this.getRandomPhrase();
 		this.activePhrase.addPhraseToDisplay();
@@ -46,23 +45,25 @@ class Game {
 	 */
 	handleInteraction(letter) {
 		const domKeyboard = document.querySelectorAll('.key');
-		let target;
+		let target = null;
 		domKeyboard.forEach((key) => {
 			if (key.textContent === letter) target = key;
 		});
 
-		target.disabled = true;
-		const isFound = this.activePhrase.checkLetter(letter);
+		if (target) {
+			target.disabled = true;
+			const isFound = this.activePhrase.checkLetter(letter);
 
-		if (isFound) {
-			target.classList.add('chosen');
-			target.classList.remove('key');
-			this.activePhrase.showMatchedLetter(letter);
-			if (this.checkForWin()) this.gameOver(true);
-		} else {
-			target.classList.add('wrong');
-			target.classList.remove('key');
-			this.removeLive();
+			if (isFound) {
+				target.classList.add('chosen');
+				target.classList.remove('key');
+				this.activePhrase.showMatchedLetter(letter);
+				if (this.checkForWin()) this.gameOver(true);
+			} else {
+				target.classList.add('wrong');
+				target.classList.remove('key');
+				this.removeLive();
+			}
 		}
 	}
 
@@ -102,6 +103,8 @@ class Game {
 		const overlay = document.getElementById('overlay');
 		overlay.classList.remove('start');
 
+		const game = this;
+
 		setTimeout(function () {
 			if (result) {
 				overlay.querySelector('#game-over-message').textContent = 'You win!!!';
@@ -113,6 +116,7 @@ class Game {
 				overlay.classList.add('lose');
 			}
 			overlay.style.display = '';
+			game.resetGame();
 		}, 600);
 	}
 
