@@ -106,12 +106,13 @@ class Game {
 		const game = this;
 
 		setTimeout(function () {
+			const overlayMessage = overlay.querySelector('#game-over-message');
 			if (result) {
-				overlay.querySelector('#game-over-message').textContent = 'You win!!!';
+				overlayMessage.textContent = 'You win!!!';
 				overlay.classList.remove('lose');
 				overlay.classList.add('win');
 			} else {
-				overlay.querySelector('#game-over-message').textContent = 'You lose...';
+				overlayMessage.textContent = 'You lose...';
 				overlay.classList.remove('win');
 				overlay.classList.add('lose');
 			}
